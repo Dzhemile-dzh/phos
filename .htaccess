@@ -1,0 +1,4 @@
+SetEnv DB_SERVER "localhost"
+SetEnv DB_NAME "exchage_rates"
+SetEnv DB_PASSWORD "dzhemile42"
+SetEnv DB_USER "dzhemile"
