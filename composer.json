@@ -1,0 +1,13 @@
+{
+    "name": "dzhemile/exchange_rates",
+    "description": "exchange rates",
+    "type": "project",
+    "license": "dzhemile",
+    "minimum-stability": "dev",
+    "require": {
+        "twig/twig": "3.x-dev"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "9.6.x-dev"
+    }
+}

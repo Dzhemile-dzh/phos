@@ -1,0 +1,24 @@
+
+{% block content %}
+    <h1>Monthly Rates Report</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Month</th>
+                <th>Minimum Rate</th>
+                <th>Maximum Rate</th>
+                <th>Average Rate</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for report in reportData %}
+                <tr>
+                    <td>{{ report.month }}</td>
+                    <td>{{ report.min }}</td>
+                    <td>{{ report.max }}</td>
+                    <td>{{ report.avg }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

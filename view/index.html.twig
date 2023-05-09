@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+{% extends '/template/header.html.twig' %}
+<body>
+	<h1>Exchange Rates Dashboard</h1>
+	
+	<form method="post" action="/rates/historicalRates">
+		<input type="submit" value="Import USD Historical Rates for 2022" />
+	</form>
+	
+	<table>
+		<thead>
+			<tr>
+				<th>Date</th>
+				<th>Currency</th>
+				<th>Rate</th>
+				<th>Action</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for rate in rates %}
+			<tr>
+				<td>{{ rate.date }}</td>
+				<td>{{ rate.currency }}</td>
+				<td>
+					<form method="post" action="/rates/editRate">
+						<input type="hidden" name="id" value="{{ rate.id }}" />
+						<input type="text" name="rate" value="{{ rate.rate }}" />
+						<input type="submit" value="Save" />
+					</form>
+				</td>
+				<td>
+					<form method="post" action="/rates/deleteRate">
+						<input type="hidden" name="id" value="{{ rate.id }}" />
+						<input type="submit" value="Delete" />
+					</form>
+				</td>
+			</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+	
+
+	<form method="post" action="/reports/report">
+		<input type="submit" value="Generate Exchange Rate Report" />
+	</form>
+	
+	{% if report %}
+	<form method="post" action="/export-report">
+		<input type="submit" value="Export Exchange Rate Report to Excel" />
+	</form>
+	{% endif %}
+	
+{% extends '/template/footer.html.twig' %}	
+</body>
+</html>

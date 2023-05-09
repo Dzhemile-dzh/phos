@@ -1,0 +1,12 @@
+.container {
+    margin-top: 20px;
+}
+
+#display-image{
+    width: 100%;
+}
+img{
+    margin: 5px;
+    width: 50px;
+    height: 30px;
+}

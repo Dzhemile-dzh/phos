@@ -1,0 +1,28 @@
+{% block content %}
+    <h1>Historical Rates</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>From</th>
+                <th>To</th>
+                <th>Rate</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for rate in rates %}
+                <tr>
+                    <td>{{ rate.date|date('m/d/Y') }}</td>
+                    <td>{{ rate.base_currency }}</td>
+                    <td>{{ rate.currencyTo }}</td>
+                    <td>{{ rate.rate }}</td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="4">No historical rates available.</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
+

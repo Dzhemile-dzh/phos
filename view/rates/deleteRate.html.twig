@@ -1,0 +1,17 @@
+
+{% block content %}
+    <h1>Delete Rate</h1>
+    <p>Are you sure you want to delete the following rate?</p>
+    <dl>
+        <dt>Currency From:</dt>
+        <dd>{{ rate.currencyFrom }}</dd>
+        <dt>Currency To:</dt>
+        <dd>{{ rate.currencyTo }}</dd>
+        <dt>Rate:</dt>
+        <dd>{{ rate.rate }}</dd>
+    </dl>
+    <form action="{{ path('delete_rate', {'id': rate.id}) }}" method="post">
+        <input type="submit" value="Delete" class="btn btn-danger">
+        <a href="{{ path('rates') }}" class="btn btn-default">Cancel</a>
+    </form>
+{% endblock %}
